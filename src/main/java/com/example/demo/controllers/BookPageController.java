@@ -33,7 +33,6 @@ public class BookPageController {
         return "books";
     }
 
-    //Антон
     @GetMapping("/newBook")
     public String showAddBookForm(Model model) {
         // Логика отображения формы для создания новой книги
@@ -45,7 +44,6 @@ public class BookPageController {
         return new Book();
     }
 
-    //Антон
     @GetMapping("/user-books")
     public String getUserBooks(Model model) {
         // Получаем список книг из базы данных
@@ -56,7 +54,6 @@ public class BookPageController {
         return "user-books";
     }
 
-    //Антон
     @PostMapping("/newBook")
     public String addBook(@ModelAttribute("newBook") Book newBook) {
         // Сохранить новую книгу в базу данных
@@ -68,21 +65,21 @@ public class BookPageController {
 
 
     @GetMapping("/books/{id}")
-    public ResponseEntity getBookByID(@PathVariable Long id) {
-        if (!adminService.getBookByID(id).isEmpty()) {
-            return ResponseEntity.ok(adminService.getBookByID(id));
+    public ResponseEntity<Book> getBookByID(@PathVariable Long id) {
+        if (adminService.getBookByID(id).isPresent()) {
+            return ResponseEntity.ok(adminService.getBookByID(id).get());
         } else {
-            return  ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
     }
 
     @DeleteMapping("/books/{id}")
-    public void deleteBookByID(@PathVariable Long id){
-        adminService.deleteBookByID(id) ;
+    public void deleteBookByID(@PathVariable Long id) {
+        adminService.deleteBookByID(id);
     }
 
     @PutMapping("/books")
-    public Book update(@RequestBody Book book){
+    public Book update(@RequestBody Book book) {
         adminService.saveOrUpdateBook(book);
         return book;
     }

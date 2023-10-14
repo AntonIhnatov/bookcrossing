@@ -26,14 +26,13 @@ public class AdminService {
 
     public void saveAll(List<Book> books) {
         bookRepository.saveAll(books);
-
     }
 
     public void save(Book book) {
         bookRepository.save(book);
     }
 
-    public List<Book> getALLbooks(){
+    public List<Book> getALLbooks() {
         return bookRepository.findAll();
     }
 
@@ -41,17 +40,17 @@ public class AdminService {
         return bookRepository.findById(id);
     }
 
-    public Admin getAdminByLogin (String login){
+    public Admin getAdminByLogin(String login) {
         System.out.println(login);
         return adminRepository.findAdminByLogin(login);
     }
 
 
-    public void deleteBookByID(Long id){
-        bookRepository.deleteById(id) ;
+    public void deleteBookByID(Long id) {
+        bookRepository.deleteById(id);
     }
 
-    public void saveOrUpdateBook(Book book){
+    public void saveOrUpdateBook(Book book) {
         bookRepository.save(book);
     }
 

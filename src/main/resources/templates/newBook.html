@@ -1,22 +1,26 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add Book</title>
 </head>
 <body>
+<link href="blocks/based.css" rel="stylesheet" type="text/css" />
+<header th:insert="blocks/header :: header"></header>
+
 <h1>Add a New Book</h1>
 
-<!-- Форма для добавления новой книги -->
 <form th:action="@{/newBook}" method="post">
+
     <label for="name">Название книги:</label>
     <input type="text" id="name" name="name" th:field="${newBook.name}" th:required="required"><br>
 
     <label for="author">Автор:</label>
     <input type="text" id="author" name="author" th:field="${newBook.author}" th:required="required"><br>
 
-    <label for="jenre">Жанр:</label>
-    <select id="jenre" name="jenre" th:field="${newBook.jenre}">
+    <label for="genre">Жанр:</label>
+    <select id="genre" name="genre" th:field="${newBook.jenre}">
         <option th:each="genre : ${newBook.listOfGenres()}" th:value="${genre}" th:text="${genre}"></option>
     </select><br>
 

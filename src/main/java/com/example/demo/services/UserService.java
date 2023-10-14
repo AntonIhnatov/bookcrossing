@@ -8,17 +8,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    @Autowired
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    public User saveUser (User user){
+    public User saveUser(User user){
         System.out.println(user);
         return userRepository.save(user);
     }
 
     public User getUserById (long id){
-        return userRepository.getOne(id);
+        return userRepository.getReferenceById(id);
     }
 
     public User getUserByLogin (String login){
