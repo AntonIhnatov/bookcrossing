@@ -58,42 +58,31 @@
     <h3>Ласкаво просимо на сторінку авторизації</h3>
     <p>Будь ласка, введіть ваш логін і пароль:</p>
 
-    <form action="/login" method="post">
-        <div class="form-group">
-            <label for="login">Логін:</label>
-            <input type="text" id="login" name="login" required>
+    <form th:action="@{/login}" method="post">
+        <div>
+            <input type="text" name="username" placeholder="Username" required/>
         </div>
-        <div class="form-group">
-            <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
+        <div>
+            <input type="password" name="password" placeholder="Password" required/>
         </div>
         <button type="submit" class="button">Увійти</button>
     </form>
+
 
     <br><h5><a href="register" class="href">Зареєструватися</a></h5>
 </div>
 </body>
 </html>
 
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <title>Please Log In</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Please Log In</h1>-->
-<!--<div th:if="${param.error}">-->
-<!--    Invalid username and password.</div>-->
-<!--<div th:if="${param.logout}">-->
-<!--    You have been logged out.</div>-->
-<!--<form th:action="@{/login}" method="post">-->
-<!--    <div>-->
-<!--        <input type="text" name="username" placeholder="Username"/>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <input type="password" name="password" placeholder="Password"/>-->
-<!--    </div>-->
-<!--    <input type="submit" value="Log in" />-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
+<!--    <form action="/login" method="post">-->
+<!--        <div class="form-group">-->
+<!--            <label for="login">Логін:</label>-->
+<!--            <input type="text" id="username" name="username" required>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="password">Пароль:</label>-->
+<!--            <input type="password" id="password" name="password" required>-->
+<!--        </div>-->
+<!--        <button type="submit" class="button">Увійти</button>-->
+<!--    </form>-->
+

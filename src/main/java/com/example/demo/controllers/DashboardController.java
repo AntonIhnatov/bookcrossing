@@ -19,8 +19,8 @@ public class DashboardController {
     }
 
     @GetMapping("/dashboard")
-    public String dashboardPage(Model model, @RequestParam(name = "username") String login) {
-        User user = userService.getUserByLogin(login);
+    public String dashboardPage(Model model, @RequestParam(name = "username") String username) {
+        User user = userService.getUserByUsername(username);
         if (user != null) {
             model.addAttribute("user", user);
             return "dashboard";

@@ -1,0 +1,37 @@
+--liquibase formatted sql
+
+--changeset Ignat:1 runOnChange:true
+
+-- CREATE TABLE users (
+--                        id SERIAL PRIMARY KEY,
+--                        username VARCHAR(255) NOT NULL,
+--                        password VARCHAR(255) NOT NULL,
+--                        name VARCHAR(255),
+--                        email VARCHAR(255),
+--                        phone VARCHAR(255),
+--                        city VARCHAR(255)
+-- );
+--
+-- CREATE TABLE books (
+--                        id SERIAL PRIMARY KEY,
+--                        name VARCHAR(255) NOT NULL,
+--                        author VARCHAR(255),
+--                        genre VARCHAR(255),
+--                        user_id INT,
+--                        FOREIGN KEY (user_id) REFERENCES users (id)
+-- );
+--
+-- CREATE TABLE roles (
+--                        id SERIAL PRIMARY KEY,
+--                        role_name VARCHAR(255) NOT NULL
+-- );
+--
+-- CREATE TABLE user_roles (
+--                             user_id INT,
+--                             role_id INT,
+--                             FOREIGN KEY (user_id) REFERENCES users (id),
+--                             FOREIGN KEY (role_id) REFERENCES roles (id)
+-- );
+
+-- ALTER TABLE users ADD COLUMN user_role int;
+-- ALTER TABLE users ADD CONSTRAINT user_role_fk FOREIGN KEY (user_role) REFERENCES roles (id);
