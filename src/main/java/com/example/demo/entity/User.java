@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,6 +19,8 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private Long id;
+    @NotEmpty
+    @Size(min = 2, max = 20, message = "The login field must be between 2 and 20 characters.")
     @Column(name = "username")
     private String username;
     @Column(name = "password")
