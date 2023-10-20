@@ -20,7 +20,7 @@
     <input type="text" id="author" name="author" th:field="${newBook.author}" th:required="required"><br>
 
     <label for="genre">Жанр:</label>
-    <select id="genre" name="genre" th:field="${newBook.jenre}">
+    <select id="genre" name="genre" th:field="${newBook.genre}">
         <option th:each="genre : ${newBook.listOfGenres()}" th:value="${genre}" th:text="${genre}"></option>
     </select><br>
 

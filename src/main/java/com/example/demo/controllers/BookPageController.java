@@ -56,10 +56,8 @@ public class BookPageController {
 
     @PostMapping("/newBook")
     public String addBook(@ModelAttribute("newBook") Book newBook) {
-        // Сохранить новую книгу в базу данных
         bookRepository.save(newBook);
 
-        // Перенаправить пользователя на страницу, где можно увидеть добавленную книгу
         return "redirect:/user-books";
     }
 

@@ -22,7 +22,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String performUsername(@RequestParam("username") String username,
+    public String performUsername(@RequestParam(name = "username", required = false) String username,
                                   @RequestParam("password") String password){
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         System.out.println("akfkofjmf");
